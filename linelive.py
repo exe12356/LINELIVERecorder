@@ -55,7 +55,7 @@ def main(argv):
         channel_api = 'https://live-api.line-apps.com/app/channel/' + channel_id
         data = GetRequest(channel_api)
         if(len(data['liveBroadcasts']['rows']) > 0):
-            m3u8 = get_hls(data['liveBroadcasts']['rows'][0]['id'])
+            m3u8 = get_hls(data['liveBroadcasts']['rows'][0]['id'], channel_id)
             print(m3u8)
             rec_hls(data['liveBroadcasts']['rows'][0]['title'],
                     m3u8, 'ts')
